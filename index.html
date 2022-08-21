@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Gastos</title>
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--Css-->
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    
+    <header>
+        <section class="sectionHeader">
+            <ul>
+                <li><button type="button" id="opcionUsuario">Crear Perfil</button></li>
+                <li><button type="button" id="opcionPresupuesto">Presupuesto</button></li>
+                <li><button type="button" id="opcionGastos">Gastos</button></li>
+                <li><button type="button" id="opcionFiltrar">Filtrar Gastos</button></li>
+                <li><button type="button" id="opcionConversor">Conversor de Divisas</button></li>
+            </ul>
+        </section>
+    </header>
+    
+    <main class="contAll">
+        <div class="contAll2">
+
+            <!--Section Usuario-->
+            <section id="sectionUsuario" class="sectionUsuario">
+                <h1>Crea tu perfil</h1>
+                <h2>Con tus datos personalizaremos tu Archivo de Gestor de Gastos</h2>
+
+                <form id="formUsuario">
+                    <button type="submit" disabled hidden class="none" aria-hidden="true"></button>
+
+                    <input type="text" id="nombre" name="nombre" placeholder=" Enther your name">
+                    <input type="email" id="email" name="email" placeholder="Enther your Email">
+                    <button type="submit" id="btnCrearUsuario" class="btn">Crear</button>
+                </form>
+            </section>
+
+            <!--Section Presupuesto-->
+            <section id="sectionPresupuesto" class="sectionPresupuesto">
+                <h1 id="bienvenido" class="bienvenido"></h1>
+                <h1>Presupuesto</h1>
+
+                <form id="formPresupuesto">
+                    <button type="submit" disabled hidden class="none" aria-hidden="true"></button>
+    
+                    <div>
+                        <input type="number" id="presupuesto" name="presupuesto" placeholder=" Enther your budget">
+    
+                        <select id="divisa" name="divisa">
+                            <option value="divisa" selected>Divisa</option>
+                            <option value="ARS">ARS</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="AUD">AUD</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="btnPresupuesto" class="btn">Cargar Presupuesto</button>
+                    <div id="errorPresupuesto" class="errorPresupuesto"></div>
+                </form>
+            </section>
+            
+            <!--Section Gastos-->
+            <section id="sectionGastos" class="sectionGastos">
+                <h1>Gastos</h1>
+            
+                <form id="formGastos" class="formGastos">
+                    <button type="submit" disabled hidden class="none" aria-hidden="true"></button>
+    
+                    <input type="text" id="titulo" name="titulo" placeholder=" Enter the title">
+                    
+                    <select id="categoria" name="categoria">
+                        <option value="categoria" selected>Categoría</option>
+                        <option value="Alimentación">Alimentación</option>
+                        <option value="Cuidado Personal">Cuidado Personal</option>
+                        <option value="Entretenimiento y Salidas">Entretenimiento y Salidas</option>
+                        <option value="Indumentaria">Indumentaria</option>
+                        <option value="Salud">Salud</option>
+                        <option value="Vivienda">Vivienda</option>
+                        <option value="Limpieza">Limpieza</option>
+                        <option value="Mascota">Mascota</option>
+                        <option value="Impuestos">Impuestos</option>
+                        <option value="Servicios">Servicios</option>
+                        <option value="Viáticos">Viáticos</option>
+                        <option value="Viaje">Viaje</option>
+                        <option value="Extras">Extras</option>
+                    </select>
+    
+                    <input type="number" name="monto" id="monto" placeholder=" Enter the amount">
+                    
+                    <button type="submit" class="btn">Agregar Gasto</button>
+                    <div id="errorGasto" class="errorPresupuesto"></div>
+                    <div id="presupuestoAgotado" class="presupuestoAgotado"></div>
+                </form>
+
+                <section id="sectionVistaGastos" class="sectionVistaGastos"></section>
+            </section>
+
+            <section id="sectionRenovarPres">
+                <button type="button" id="btnRenovar" class="btn">Renovar Presupuesto</button>
+                <button type="button" id="btnEliminarArchivo" class="btn">Eliminar archivo Gastos</button>
+            </section>
+
+            <!--Section filtrar gastos-->
+            <section id="sectionFiltrar" class="sectionFiltrar">
+
+                <h1>Filtrar Gastos Por</h1>
+                <form id="formFiltros">
+                    <button type="submit" disabled hidden class="none" aria-hidden="true"></button> <!--Para prevenir Evento por defecto ENTER-->
+                    
+                    <select id="filtros" name="filtros" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        
+                        <option selected>Mostrar Gastos Por:</option>
+                        <option value="Categoría">Categoría</option>
+                        <option value="MenorAMayor">Menor Precio a Mayor Precio</option>
+                        <option value="MayorAMenor">Mayor Precio a Menor Precio</option>
+                    </select>
+                    
+                    <button type="button" id="btnFiltros" class="btn btn-dark mt-3">Mostrar</button>
+                </form>
+
+                <section id="filtrarPorCategoria">
+                    
+                    <select id="categoriaFiltrar" name="categoriaFiltrar" class="form-select form-select-sm mt-3" aria-label=".form-select-sm example">
+                        <option selected>Elija Categoría de Gastos que desea ver</option>
+                        <option value="Alimentación">Alimentación</option>
+                        <option value="Cuidado Personal">Cuidado Personal</option>
+                        <option value="Entretenimiento y Salidas">Entretenimiento y Salidas</option>
+                        <option value="Indumentaria">Indumentaria</option>
+                        <option value="Salud">Salud</option>
+                        <option value="Vivienda">Vivienda</option>
+                        <option value="Limpieza">Limpieza</option>
+                        <option value="Mascota">Mascota</option>
+                        <option value="Impuestos">Impuestos</option>
+                        <option value="Servicios">Servicios</option>
+                        <option value="Viáticos">Viáticos</option>
+                        <option value="Viaje">Viaje</option>
+                        <option value="Extras">Extras</option>
+                    </select>
+                    <button id="btnCategoria" class="btn btn-primary mt-1 mb-3">Elejir</button>
+                </section>
+
+                <div id="divGastosFiltrados" class="row mostrarGastos"></div>
+            </section>
+
+            <!--Section Conversor-dolar hoy-->
+            <section id="sectionConversor" class="sectionConversor">
+                <!--Dolar hoy API-->
+                <div class="contenedorDolar">
+                    <h1>Dolar Hoy</h1>
+                    <div class="dolar" id="dolar">
+                        <p id="solidario" class="solidario"></p>
+                        <p id="blue" class="blue"></p>
+                    </div>
+                </div>
+
+                <!--Prueba API conversor de moneda-->
+                <div class="contenedorDivisas">
+                    <h1>Conversor de Divisas</h1>
+
+                    <div class="contenedorDivisas__divisa">
+                        <h5 class="nombre">Divisa:</h5>
+                        <h5 class="valor">Monto:</h5>
+                    </div>
+
+                    <!--Conversor de moneda-->
+                    <div class="contenedorDivisas__divisa">
+                        <div class="nombre">Argentino</div>
+                        <input type="number" id="ARS" class="valor" name="ARS" value="1" data-cambio="1" step="0.25">
+                    </div>
+
+                    <div class="contenedorDivisas__divisa">
+                        <div class="nombre">Euro</div>
+                        <input type="number" id="EUR" class="valor" name="EUR" value="1" data-cambio="0.007242" step="0.25">
+                    </div>
+
+                    <div class="contenedorDivisas__divisa">
+                        <div class="nombre" title="dolar oficial">Dolar</div>
+                        <input type="number" id="USD" class="valor" name="USD" value="1" data-cambio="0.010434" step="0.25">
+                    </div>
+
+                    <div class="contenedorDivisas__divisa">
+                        <div class="nombre">Australiano</div>
+                        <input type="number" id="AUD" class="valor" name="AUD" value="1" data-cambio="0.010434" step="0.25">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+    <footer class="footer">
+        <section class="sectionFooter">
+            <p>Copyright © 2022 - <a href="https://github.com/zoegiargei">Zoe Giargei</a></p>
+        </section>
+    </footer>
+    
+    <!--Js librerias-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--Js local-->
+    <script src="./script.js/clases.js"></script>
+    <script src="./script.js/funciones.js"></script>
+    <script src="./script.js/script.js"></script>
+</body>
+</html>

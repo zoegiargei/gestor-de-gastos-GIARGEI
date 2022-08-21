@@ -1,0 +1,39 @@
+body{
+    
+    background-image: url(../imagenes/coffee-beans-background.jpg);
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: $txtBlanco;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+
+    &::after, &::before{
+        content: '';
+        position: fixed;
+        height: 400px;
+        width: 400px;
+        border-radius: 50%;
+        z-index: -1;
+        filter: blur(150px);
+        opacity: 0.5;
+    }
+
+    
+    &::after{
+        background-color: $azul-oscuro;
+        right: 0;
+        top: 0;
+        transform: translate(50%);
+    }
+            
+    &::before{
+        background-color: $celeste-claro;
+        left: 0;
+        bottom: 0;
+        transform: translate(-60%);
+    }
+}

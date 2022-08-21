@@ -1,0 +1,15 @@
+{
+  "name": "gestor-prueba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "sass estilos.scss ./css/estilos.css -w --no-source-map -s compressed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "toastify-js": "^1.12.0"
+  }
+}

@@ -47,8 +47,8 @@
     width: 100%;
     min-height: 100vh;
 
-    padding: 60px 15px;
-    padding-top: 100px;
+    padding: 80px 15px;
+    padding-top: 50px;
     margin: 0 auto;
     text-align: center;
     justify-self: center;
@@ -59,12 +59,12 @@
     h1{
         font-family: 'Poppins', sans-serif;
         font-weight: 100;
-        font-size: 20px;
+        font-size: 15px;
     }
 
     width: 800px;
     height: min-content;
-    margin: 15vh auto;
+    margin: 10vh auto;
     padding: 20px;
     box-shadow: 5px 10px 12px 1px hsl(216, 28%, 20%);
     background: radial-gradient(circle, rgba(114,144,182,1) 0%, rgba(157,177,199,1) 100%);
@@ -84,13 +84,13 @@
     padding: 40px 50px;
 
     h1{
-        font-size: 28px;
+        font-size: 22px;
         font-weight: 200;
         text-align: center;
         line-height: 1.2;
     }
     h2{
-        padding: 20px;
+        padding: 18px;
         color: $txtBlanco;
         font-family: 'poppins',sans-serif;
         font-size: 18px;
@@ -105,7 +105,7 @@
         input{
 
             color: $txtBlanco;
-            font-size: 20px;
+            font-size: 18px;
             font-family: 'poppins',sans-serif;
             font-weight: 200;
             text-align: center;
@@ -121,7 +121,7 @@
             &::placeholder{
 
                 color: $gris-celeste;
-                font-size: 20px;
+                font-size: 18px;
                 font-weight: 100;
             }
 
@@ -137,6 +137,13 @@
     margin: 20px auto;
     text-align: center;
     color: $azul-oscuro;
+}
+
+.error{
+    color: red;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 .btn{
@@ -174,7 +181,7 @@
     select{
 
         color: $txtBlanco;
-        font-size: 20px;
+        font-size: 18px;
         font-family: 'poppins',sans-serif;
         font-weight: 200;
         text-align: center;
@@ -197,7 +204,7 @@
         background-color: $celeste;
 
         font-family: 'poppins',sans-serif;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 100;
         text-align: center;
     }

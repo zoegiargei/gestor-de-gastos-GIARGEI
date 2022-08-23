@@ -299,6 +299,59 @@ const apis = () => {
         dolarBlue.innerHTML += `
         Blue: ${blue}`
     })
+
+    //Conversor de moneda
+    let myHeaders = new Headers();
+    myHeaders.append("apikey", "xTSp083De3jdN6gDfkoYCXuO6HgBh0xQ");
+
+    let requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+    headers: myHeaders
+    };
+
+    //api layer
+    fetch("https://api.apilayer.com/currency_data/live?source=ARS&currencies=USD,EUR,AUD", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+
+        let eur = document.querySelector(`#EUR`)
+        eur.dataset.cambio = result.quotes.ARSEUR
+        
+        let usd = document.querySelector(`#USD`)
+        usd.dataset.cambio = result.quotes.ARSUSD
+        
+        let aud = document.querySelector(`#AUD`)
+        aud.dataset.cambio = result.quotes.ARSAUD
+
+        console.log(result.quotes.ARSAUD)
+        console.log(result.quotes.ARSEUR)
+        console.log(result.quotes.ARSUSD)
+
+        inputs.forEach(input => {
+            input.value = input.dataset.cambio
+        })
+    })
+    .catch(error => console.error(error))
+    //
+
+    let inputs = document.querySelectorAll(`.valor`)
+
+    inputs.forEach((input)=>{
+        
+        input.value = (input.dataset.cambio)
+        input.addEventListener(`change`, () => {
+            valorModificado(input)
+        })
+    })
+
+    function valorModificado(input){
+        let factor = (input.value / input.dataset.cambio)
+
+        inputs.forEach((input) => {
+            input.value = (input.dataset.cambio * factor).toFixed(3)
+        })
+    }
 }
 
 //variable para funciones de filtrado de gastos

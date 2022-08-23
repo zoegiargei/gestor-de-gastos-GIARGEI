@@ -35,6 +35,9 @@ Lista de las tecnologías usadas en el proyecto:
 ![Vista previa del proyecto](https://user-images.githubusercontent.com/48769662/185793593-9356c4c0-555a-438d-97df-307a8b35adf2.png)
 ***
 
+![Vista previa conversor con APIS](https://user-images.githubusercontent.com/48769662/186193631-ade45925-121f-4c57-bf52-a1c62ea27724.png)
+***
+
 ### 3. INFORMACIÓN SOBRE EL AUTOR
 
 **Mi nombre es Zoe Giargei, tengo 21 años, actualmente estoy estudiando una carrera de programación. Tengo conocimiento en Python, Java, HTML5 y CSS3 y JavaScript, próximamente en REACT.js también. Estudié 2 años la carrera de Ingeniería en Sistemas en la UTN, por lo tanto, por lo visto en esos años tengo facilidad para aprender lógica de programación . Mi objetivo es dedicarme a la programación,y la bioquímica como quien dice por amor al arte... ¡Espero que mi proyecto demuestre mi dedicación y ganas de aprender en este rubro!**

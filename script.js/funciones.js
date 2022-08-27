@@ -376,7 +376,7 @@ const filtrarPorCategoria = () => {
 
             gastosCategoria.forEach((gasto, indice) => {
 
-                divGastosFiltrados.innerHTML = `
+                divGastosFiltrados.innerHTML += `
                     <div id="gasto${indice}" class="mostrarGasto">
                         <p>${gasto.titulo}</p>
                         <p><span>${gasto.categoria}</span></p>

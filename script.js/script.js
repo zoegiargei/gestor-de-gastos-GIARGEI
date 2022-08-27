@@ -21,6 +21,7 @@ formUsuario.addEventListener(`submit`, (e) => {
     formUsuario.reset()
 
     let usuario = consultarStorage(`usuario`)
+    console.log(usuario)
     let bienvenido = document.getElementById(`bienvenido`)
     bienvenido.innerHTML = `Hola ${usuario.nombre}! te damos la bienvenida a la app web de Gestion de Gastos`
     setTimeout(() => {bienvenido.innerHTML = ``}, 3000)

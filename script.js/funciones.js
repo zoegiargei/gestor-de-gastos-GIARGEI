@@ -115,7 +115,7 @@ const guardarUsuario = () => {
     if(nombreUsuario == "" || emailUsuario == ""){
         localStorage.setItem(`usuario`, JSON.stringify(new Usuario()))
     } else{
-        let nuevoUsuario = new Usuario(nombreUsuario,emailUsuario)
+        let nuevoUsuario = new Usuario(nombreUsuario, emailUsuario)
         localStorage.setItem(`usuario`, JSON.stringify(nuevoUsuario))
     }
 
@@ -123,11 +123,11 @@ const guardarUsuario = () => {
     sectionPresupuesto.style.display = `block`
 }
 
-const usuario = consultarStorage(`usuario`)
 
 //función para guardar presupuesto ingresado por el Usuario
 const guardarPresupuesto = () => {
-
+    
+    let usuario = consultarStorage(`usuario`)
     let inputPresupuesto = parseFloat(document.getElementById(`presupuesto`).value)
     let inputDivisa = document.getElementById(`divisa`).value
 
@@ -187,6 +187,7 @@ const actualizarVista = () => {
 //función para agregar gastos
 const agregarGasto = (e) => {
 
+    let usuario = consultarStorage(`usuario`)
     let dataForm = new FormData(e.target)
     let gasto = new Gasto(dataForm.get(`titulo`), dataForm.get(`categoria`), parseFloat(dataForm.get(`monto`)))
 
@@ -215,6 +216,7 @@ const agregarGasto = (e) => {
 //función para mostrar gastos en la lista de gastos
 const mostrarListaGastos = () => {
 
+    let usuario = consultarStorage(`usuario`)
     let presupuestoEnStorage = consultarStorage(`presupuesto`)
     let gastosEnStorage = consultarStorage(`gastos`)
 
